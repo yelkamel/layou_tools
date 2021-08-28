@@ -19,6 +19,16 @@ extension LaYouDuration on Duration {
   }
 }
 
+extension LaYouString on String {
+  static final emailRegex =
+      '^([\\w\\d\\-\\+]+)(\\.+[\\w\\d\\-\\+%]+)*@([\\w\\-]+\\.){1,5}(([A-Za-z]){2,30}|xn--[A-Za-z0-9]{1,26})\$';
+
+  bool get isEmail {
+    var regExp = RegExp(emailRegex);
+    return regExp.hasMatch(this);
+  }
+}
+
 extension LaYouInt on int {
   String get minFormatFromSecondes => "${(this / 60).round().toString()} min";
 
