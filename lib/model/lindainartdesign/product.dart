@@ -2,6 +2,8 @@ import 'dart:typed_data';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:enum_object/enum_object.dart';
 
+import '../utils.dart';
+
 part 'product.g.dart';
 
 enum ProductType {
@@ -31,6 +33,7 @@ class Product {
   @JsonKey(ignore: true)
   Uint8List? fileBytes;
   bool quick;
+  @JsonKey(toJson: dateTimetoJson, fromJson: dateTimefromJson)
   DateTime date;
 
   Product({
