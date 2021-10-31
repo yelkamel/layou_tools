@@ -1,4 +1,5 @@
 import 'dart:typed_data';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:enum_object/enum_object.dart';
 
@@ -15,6 +16,12 @@ enum ProductType {
 enum BackgroundType {
   united,
   illustrated,
+}
+
+enum ProductStatus {
+  notpay,
+  payed,
+  refused,
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -34,7 +41,9 @@ class Product {
   Uint8List? fileBytes;
   bool quick;
   @JsonKey(toJson: dateTimetoJson, fromJson: dateTimefromJson)
-  DateTime date;
+  DateTime? date;
+  @JsonKey(toJson: productStatusToJson, fromJson: productStatusFromJson)
+  ProductStatus? status;
 
   Product({
     this.id,
@@ -49,10 +58,11 @@ class Product {
     this.fileBytes,
     this.quick = false,
     required this.date,
+    this.status = ProductStatus.notpay,
   });
 
   factory Product.fromJson(Map<String, dynamic> data, String id) =>
-      _$ProductFromJson({id: id, ...data});
+      _$ProductFromJson({...data, id: id});
 
   Map<String, dynamic> toJson() => _$ProductToJson(this);
   @override
@@ -133,6 +143,17 @@ ProductType? productTypeFromJson(String? str) {
 }
 
 String? productTypeToJson(ProductType? type) {
+  if (type == null) return null;
+  return type.enumValue;
+}
+
+ProductStatus? productStatusFromJson(String? str) {
+  if (str == null) return null;
+  var enumObject = EnumObject<ProductStatus>(ProductStatus.values);
+  return enumObject.enumFromString(str);
+}
+
+String? productStatusToJson(ProductStatus? type) {
   if (type == null) return null;
   return type.enumValue;
 }

@@ -21,7 +21,10 @@ Product _$ProductFromJson(Map<String, dynamic> json) => Product(
           ? BackgroundType.united
           : backgroundTypeFromJson(json['backgroundType'] as String?),
       quick: json['quick'] as bool? ?? false,
-      date: DateTime.parse(json['date'] as String),
+      date: dateTimefromJson(json['date'] as Timestamp?),
+      status: json['status'] == null
+          ? ProductStatus.notpay
+          : productStatusFromJson(json['status'] as String?),
     );
 
 Map<String, dynamic> _$ProductToJson(Product instance) => <String, dynamic>{
@@ -35,5 +38,6 @@ Map<String, dynamic> _$ProductToJson(Product instance) => <String, dynamic>{
       'nbOfPerson': instance.nbOfPerson,
       'backgroundType': backgroundTypeToJson(instance.backgroundType),
       'quick': instance.quick,
-      'date': instance.date.toIso8601String(),
+      'date': dateTimetoJson(instance.date),
+      'status': productStatusToJson(instance.status),
     };
