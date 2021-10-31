@@ -61,8 +61,11 @@ class Product {
     this.status = ProductStatus.notpay,
   });
 
-  factory Product.fromJson(Map<String, dynamic> data, String id) =>
-      _$ProductFromJson({...data, id: id});
+  factory Product.fromJson(Map<String, dynamic> data, String docId) =>
+      _$ProductFromJson({
+        ...data,
+        "id": docId,
+      });
 
   Map<String, dynamic> toJson() => _$ProductToJson(this);
   @override
