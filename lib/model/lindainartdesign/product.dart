@@ -76,25 +76,23 @@ class Product {
 https://lindainartdesign-merci.web.app/
 */
   String get getUrlStripePaymentLink {
-    if (totalPrice == 57) return "https://buy.stripe.com/bIYaFVcn678s4cEaEE";
-    if (totalPrice == 67) return "https://buy.stripe.com/5kA3dtgDm64odNe5km";
-    if (totalPrice == 82) return "https://buy.stripe.com/6oE4hxaeY78sdNe8wA";
-    if (totalPrice == 72) return "https://buy.stripe.com/7sIdS7fzi78s9wYbIL";
+    if (totalPrice == 45) return "https://buy.stripe.com/00gaFV2MwboI6kMeVh";
+    if (totalPrice == 50) return "https://buy.stripe.com/fZedS7fzi8cwbF68wU";
 
-    if (totalPrice == 77) return "https://buy.stripe.com/6oEg0f2Mw3WgfVm7st";
-    if (totalPrice == 87) return "https://buy.stripe.com/9AQ3dt0EoboIcJaaEJ";
-    if (totalPrice == 92) return "https://buy.stripe.com/4gw01h5YIakE9wYdQW";
-    if (totalPrice == 102) return "https://buy.stripe.com/14kdS7cn62Sc8sUfZ5";
+    if (totalPrice == 55) return "https://buy.stripe.com/00g3dtgDmeAU38A6oN";
+    if (totalPrice == 60) return "https://buy.stripe.com/28o01hbj28cw5gIeVk";
 
-    if (totalPrice == 97) return "https://buy.stripe.com/8wMbJZ0Eo50kbF68wE";
-    if (totalPrice == 107) return "https://buy.stripe.com/00g5lB4UEgJ224wfZ7";
-    if (totalPrice == 112) return "https://buy.stripe.com/fZeeWbfzi0K4gZq9AK";
-    if (totalPrice == 122) return "https://buy.stripe.com/9AQ15l4UEfEY24wbIT";
+    if (totalPrice == 65) return "https://buy.stripe.com/8wM8xNgDm1O8dNeaF5";
+    if (totalPrice == 70) return "https://buy.stripe.com/eVa01h1IsboIfVmcNe";
 
-    if (totalPrice == 117) return "https://buy.stripe.com/28o01h4UEdwQ10s3co";
-    if (totalPrice == 127) return "https://buy.stripe.com/bIY4hxdra9gA9wY9AO";
-    if (totalPrice == 132) return "https://buy.stripe.com/28ocO3eve1O88sUaET";
-    if (totalPrice == 142) return "https://buy.stripe.com/bIY6pF4UEakE9wY6oB";
+    if (totalPrice == 75) return "https://buy.stripe.com/dR6dS772M8cw9wYeVn";
+    if (totalPrice == 80) return "https://buy.stripe.com/8wM6pFbj21O86kMaF8";
+
+    if (totalPrice == 85) return "https://buy.stripe.com/bIY6pF72M1O824w28E";
+    if (totalPrice == 90) return "https://buy.stripe.com/00g8xN9aUfEYdNefZt";
+
+    if (totalPrice == 95) return "https://buy.stripe.com/bIYeWb9aUakEdNe6oW";
+    if (totalPrice == 100) return "https://buy.stripe.com/fZe8xNfzi0K45gI14B";
 
     return "https://lindainartdesign-merci.web.app/";
   }
