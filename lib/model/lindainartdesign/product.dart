@@ -102,6 +102,7 @@ class Product {
   }
 
   double calculateWithOptionPrice(int basePrice) =>
+      basePrice +
       (isIllustrated ? 15 : 0) +
       (format == 4 ? 5 : 0) +
       (quick ? (basePrice * 25 / 100).round().toDouble() : 0);
