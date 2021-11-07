@@ -12,10 +12,12 @@ class Product {
   String? email;
   String type;
   String backgroundType;
+  @JsonKey(ignore: true)
   int format;
   String? descr;
   String? text;
   String? filename;
+  @JsonKey(ignore: true)
   int nbOfPerson;
   @JsonKey(ignore: true)
   Uint8List? fileBytes;
