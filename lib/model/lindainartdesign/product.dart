@@ -1,28 +1,10 @@
 import 'dart:typed_data';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:enum_object/enum_object.dart';
 
 import '../utils.dart';
 
 part 'product.g.dart';
-
-enum ProductType {
-  portrait,
-  poster,
-  minimaliste,
-}
-
-enum BackgroundType {
-  united,
-  illustrated,
-}
-
-enum ProductStatus {
-  notpay,
-  payed,
-  refused,
-}
 
 @JsonSerializable(explicitToJson: true)
 class Product {
@@ -69,6 +51,8 @@ class Product {
   @override
   String toString() => toJson().toString();
 
+  bool get isNumeric => format == 0;
+
   bool get isPortrait => type == 'portrait';
   bool get isPoster => type == 'poster';
 
@@ -104,7 +88,7 @@ class Product {
   double calculateWithOptionPrice(int basePrice) =>
       basePrice +
       (isIllustrated ? 15 : 0) +
-      (format == 4 ? 5 : 0) +
+      (isNumeric ? 0 : 5) +
       (quick ? (basePrice * 25 / 100).round().toDouble() : 0);
 
   double get totalPrice {
@@ -116,38 +100,5 @@ class Product {
     if (nbOfPerson == 6) return calculateWithOptionPrice(95);
 
     return 45.0;
-  }
-
-  ProductType? productTypeFromJson(String? str) {
-    if (str == null) return null;
-    var enumObject = EnumObject<ProductType>(ProductType.values);
-    return enumObject.enumFromString(str);
-  }
-
-  String? productTypeToJson(ProductType? type) {
-    if (type == null) return null;
-    return type.enumValue;
-  }
-
-  ProductStatus? productStatusFromJson(String? str) {
-    if (str == null) return null;
-    var enumObject = EnumObject<ProductStatus>(ProductStatus.values);
-    return enumObject.enumFromString(str);
-  }
-
-  String? productStatusToJson(ProductStatus? type) {
-    if (type == null) return null;
-    return type.enumValue;
-  }
-
-  BackgroundType? backgroundTypeFromJson(String? str) {
-    if (str == null) return null;
-    var enumObject = EnumObject<BackgroundType>(ProductType.values);
-    return enumObject.enumFromString(str);
-  }
-
-  String? backgroundTypeToJson(BackgroundType? type) {
-    if (type == null) return null;
-    return type.enumValue;
   }
 }
