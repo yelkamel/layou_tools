@@ -6,6 +6,17 @@ class Firestore {
 
   DocumentSnapshot? lastUserDocument;
 
+  Future<String> addData({
+    required String collectionPath,
+    required Map<String, dynamic> data,
+    bool showDebug = true,
+  }) async {
+    final reference = FirebaseFirestore.instance.collection(collectionPath);
+    if (showDebug)
+      debugPrint('===> [EvoPackage/Firestore] add To $collectionPath: $data');
+    return (await reference.add(data)).id;
+  }
+
   Future<void> setData({
     required String path,
     required Map<String, dynamic> data,
