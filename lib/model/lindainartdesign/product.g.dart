@@ -13,12 +13,12 @@ Product _$ProductFromJson(Map<String, dynamic> json) => Product(
       descr: json['descr'] as String?,
       text: json['text'] as String?,
       filename: json['filename'] as String?,
-      format: json['format'] as int? ?? 4,
       nbOfPerson: json['nbOfPerson'] as int? ?? 1,
       backgroundType: json['backgroundType'] as String? ?? "united",
       quick: json['quick'] as bool? ?? false,
       date: dateTimefromJson(json['date'] as Timestamp?),
       status: json['status'] as String? ?? "notpay",
+      format: json['format'] as int? ?? 4,
     );
 
 Map<String, dynamic> _$ProductToJson(Product instance) => <String, dynamic>{
@@ -29,9 +29,9 @@ Map<String, dynamic> _$ProductToJson(Product instance) => <String, dynamic>{
       'descr': instance.descr,
       'text': instance.text,
       'filename': instance.filename,
-      'format': instance.format,
       'nbOfPerson': instance.nbOfPerson,
       'quick': instance.quick,
       'date': dateTimetoJson(instance.date),
       'status': instance.status,
+      'format': instance.format,
     };
