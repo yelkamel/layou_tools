@@ -8,7 +8,6 @@ part 'product.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class Product {
-  @JsonKey(ignore: true)
   String? id;
   String? email;
   String type;

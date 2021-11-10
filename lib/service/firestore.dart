@@ -12,9 +12,12 @@ class Firestore {
     bool showDebug = true,
   }) async {
     final reference = FirebaseFirestore.instance.collection(collectionPath);
-    if (showDebug)
-      debugPrint('===> [EvoPackage/Firestore] add To $collectionPath: $data');
-    return (await reference.add(data)).id;
+    if (showDebug) debugPrint('===> [Firestore] Add To $collectionPath: $data');
+
+    final docRef = await reference.add(data);
+    if (showDebug) debugPrint('===> [Firestore] ID generated: ${docRef.id}');
+
+    return docRef.id;
   }
 
   Future<void> setData({
