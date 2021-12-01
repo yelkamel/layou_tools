@@ -36,15 +36,12 @@ class Product {
     this.nbOfPerson = 1,
     this.fileBytes,
     this.quick = false,
-    required this.date,
+    this.date,
     this.status = "notpay",
   });
 
   factory Product.fromJson(Map<String, dynamic> data, String docId) =>
-      _$ProductFromJson({
-        ...data,
-        "id": docId,
-      });
+      _$ProductFromJson(data);
 
   Map<String, dynamic> toJson() => _$ProductToJson(this);
 
