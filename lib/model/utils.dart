@@ -22,7 +22,7 @@ int? durationtoJson(Duration? duration) {
   return duration.inSeconds;
 }
 
-String getRandomGeneratedId() {
+String getRandomFirestoreGeneratedId() {
   const int AUTO_ID_LENGTH = 20;
   const String AUTO_ID_ALPHABET =
       'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
