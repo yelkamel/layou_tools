@@ -18,7 +18,7 @@ int durationtoJson(Duration duration) {
   return duration.inSeconds;
 }
 
-String generateRandomId({int maxIdLenght = 20}) {
+String generateRandomId({int maxLenght = 20}) {
   const String AUTO_ID_ALPHABET =
       'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
@@ -26,7 +26,7 @@ String generateRandomId({int maxIdLenght = 20}) {
   final Random randomGen = Random();
 
   String id = '';
-  for (int i = 0; i < maxIdLenght; i++) {
+  for (int i = 0; i < maxLenght; i++) {
     id = id + AUTO_ID_ALPHABET[randomGen.nextInt(maxRandom)];
   }
 

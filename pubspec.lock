@@ -170,7 +170,7 @@ packages:
     source: hosted
     version: "3.0.1"
   copy_with_extension:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: copy_with_extension
       url: "https://pub.dartlang.org"
@@ -318,14 +318,14 @@ packages:
     source: hosted
     version: "0.6.3"
   json_annotation:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: json_annotation
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.4.0"
   json_serializable:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: json_serializable
       url: "https://pub.dartlang.org"
