@@ -21,7 +21,7 @@ class Product {
   Uint8List? fileBytes;
   bool quick;
   @JsonKey(toJson: dateTimetoJson, fromJson: dateTimefromJson)
-  DateTime? date;
+  DateTime date;
   String status;
 
   Product({
@@ -36,7 +36,7 @@ class Product {
     this.nbOfPerson = 1,
     this.fileBytes,
     this.quick = false,
-    this.date,
+    required this.date,
     this.status = "notpay",
   });
 

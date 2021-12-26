@@ -2,13 +2,11 @@ import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-DateTime? dateTimefromJson(Timestamp? date) {
-  if (date == null) return null;
+DateTime dateTimefromJson(Timestamp date) {
   return DateTime.fromMillisecondsSinceEpoch(date.millisecondsSinceEpoch);
 }
 
-Timestamp? dateTimetoJson(DateTime? date) {
-  if (date == null) return null;
+Timestamp dateTimetoJson(DateTime date) {
   return Timestamp.fromMillisecondsSinceEpoch(date.millisecondsSinceEpoch);
 }
 

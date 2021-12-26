@@ -17,7 +17,7 @@ Product _$ProductFromJson(Map<String, dynamic> json) => Product(
       filename: json['filename'] as String?,
       nbOfPerson: json['nbOfPerson'] as int? ?? 1,
       quick: json['quick'] as bool? ?? false,
-      date: dateTimefromJson(json['date'] as Timestamp?),
+      date: dateTimefromJson(json['date'] as Timestamp),
       status: json['status'] as String? ?? "notpay",
     );
 
