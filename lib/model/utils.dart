@@ -10,18 +10,15 @@ Timestamp dateTimetoJson(DateTime date) {
   return Timestamp.fromMillisecondsSinceEpoch(date.millisecondsSinceEpoch);
 }
 
-Duration? durationfromJson(int? duration) {
-  if (duration == null) return null;
+Duration durationfromJson(int duration) {
   return Duration(seconds: duration);
 }
 
-int? durationtoJson(Duration? duration) {
-  if (duration == null) return null;
+int durationtoJson(Duration duration) {
   return duration.inSeconds;
 }
 
-String getRandomFirestoreGeneratedId() {
-  const int AUTO_ID_LENGTH = 20;
+String generateRandomId({int maxIdLenght = 20}) {
   const String AUTO_ID_ALPHABET =
       'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
@@ -29,7 +26,7 @@ String getRandomFirestoreGeneratedId() {
   final Random randomGen = Random();
 
   String id = '';
-  for (int i = 0; i < AUTO_ID_LENGTH; i++) {
+  for (int i = 0; i < maxIdLenght; i++) {
     id = id + AUTO_ID_ALPHABET[randomGen.nextInt(maxRandom)];
   }
 
