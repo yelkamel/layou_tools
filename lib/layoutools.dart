@@ -10,7 +10,7 @@ part 'widget/shadow_mask.dart';
 
 part 'animation/entrace_fader.dart';
 part 'animation/loading_circle.dart';
-part 'animation/fadeintout_transitionner.dart';
+part 'animation/fadeinout_transitionner.dart';
 part 'animation/gradient_animated.dart';
 
 part 'extension/datetime.dart';

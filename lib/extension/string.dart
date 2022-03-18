@@ -13,6 +13,9 @@ extension LaYouString<T> on String {
     return replaceFirst(" ", "");
   }
 
+  String get capitalizeFirst =>
+      length > 0 ? '${this[0].toUpperCase()}${substring(1).toLowerCase()}' : '';
+
   Color get hexToColor => Color(int.parse("0xff${replaceAll('#', '')}"));
 
   String get prefix {
