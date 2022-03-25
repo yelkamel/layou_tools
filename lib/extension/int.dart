@@ -5,7 +5,7 @@ extension LaYouInt on int {
 
   bool get pourcentageOfChance => Random().nextInt(99) + 1 <= this;
 
-  int get randomFromZero {
+  int get fromZeroRandom {
     return Random().nextInt(this);
   }
 }
