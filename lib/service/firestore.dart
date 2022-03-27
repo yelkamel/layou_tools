@@ -1,8 +1,8 @@
 part of layoutools;
 
-class Firestore {
-  Firestore._();
-  static final instance = Firestore._();
+class UtilsFirestore {
+  UtilsFirestore._();
+  static final instance = UtilsFirestore._();
 
   DocumentSnapshot? lastUserDocument;
 
@@ -12,10 +12,12 @@ class Firestore {
     bool showDebug = true,
   }) async {
     final reference = FirebaseFirestore.instance.collection(collectionPath);
-    if (showDebug) debugPrint('===> [Firestore] Add To $collectionPath: $data');
+    if (showDebug)
+      debugPrint('===> [UtilsFirestore] Add To $collectionPath: $data');
 
     final docRef = await reference.add(data);
-    if (showDebug) debugPrint('===> [Firestore] ID generated: ${docRef.id}');
+    if (showDebug)
+      debugPrint('===> [UtilsFirestore] ID generated: ${docRef.id}');
 
     return docRef.id;
   }
@@ -26,7 +28,7 @@ class Firestore {
     bool showDebug = true,
   }) async {
     final reference = FirebaseFirestore.instance.doc(path);
-    if (showDebug) debugPrint('===> [EvoPackage/Firestore] add: $path: $data');
+    if (showDebug) debugPrint('===> [UtilsFirestore] add: $path: $data');
     await reference.set(data);
   }
 
@@ -36,14 +38,13 @@ class Firestore {
     bool showDebug = true,
   }) async {
     final reference = FirebaseFirestore.instance.doc(path);
-    if (showDebug)
-      debugPrint('===> [EvoPackage/Firestore] update: $path: $data');
+    if (showDebug) debugPrint('===> [UtilsFirestore] update: $path: $data');
     await reference.update(data);
   }
 
   Future<void> deleteData({required String path}) async {
     final reference = FirebaseFirestore.instance.doc(path);
-    debugPrint('===> [EvoPackage/Firestore] delete: $path');
+    debugPrint('===> [UtilsFirestore] delete: $path');
     await reference.delete();
   }
 

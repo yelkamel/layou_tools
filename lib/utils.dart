@@ -6,6 +6,14 @@ DateTime dateTimefromJson(Timestamp date) {
   return DateTime.fromMillisecondsSinceEpoch(date.millisecondsSinceEpoch);
 }
 
+DateTime? dateTimefromJsonWithNull(Timestamp? date) => date == null
+    ? null
+    : DateTime.fromMillisecondsSinceEpoch(date.millisecondsSinceEpoch);
+
+Timestamp? dateTimetoJsonWithNull(DateTime? date) => date == null
+    ? null
+    : Timestamp.fromMillisecondsSinceEpoch(date.millisecondsSinceEpoch);
+
 Timestamp dateTimetoJson(DateTime date) {
   return Timestamp.fromMillisecondsSinceEpoch(date.millisecondsSinceEpoch);
 }
