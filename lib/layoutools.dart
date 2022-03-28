@@ -19,4 +19,4 @@ part 'extension/int.dart';
 part 'extension/list.dart';
 part 'extension/string.dart';
 
-part 'service/firestore.dart';
+part 'utils/firestore.dart';

@@ -2,29 +2,24 @@ import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-DateTime dateTimefromJson(Timestamp date) {
-  return DateTime.fromMillisecondsSinceEpoch(date.millisecondsSinceEpoch);
-}
+DateTime dateTimefromJson(Timestamp date) =>
+    DateTime.fromMillisecondsSinceEpoch(date.millisecondsSinceEpoch);
 
 DateTime? dateTimefromJsonWithNull(Timestamp? date) => date == null
     ? null
-    : DateTime.fromMillisecondsSinceEpoch(date.millisecondsSinceEpoch);
+    : dateTimefromJson(
+        Timestamp.fromMillisecondsSinceEpoch(date.millisecondsSinceEpoch));
+
+Timestamp dateTimetoJson(DateTime date) =>
+    Timestamp.fromMillisecondsSinceEpoch(date.millisecondsSinceEpoch);
 
 Timestamp? dateTimetoJsonWithNull(DateTime? date) => date == null
     ? null
     : Timestamp.fromMillisecondsSinceEpoch(date.millisecondsSinceEpoch);
 
-Timestamp dateTimetoJson(DateTime date) {
-  return Timestamp.fromMillisecondsSinceEpoch(date.millisecondsSinceEpoch);
-}
+Duration durationfromJson(int duration) => Duration(seconds: duration);
 
-Duration durationfromJson(int duration) {
-  return Duration(seconds: duration);
-}
-
-int durationtoJson(Duration duration) {
-  return duration.inSeconds;
-}
+int durationtoJson(Duration duration) => duration.inSeconds;
 
 String generateRandomId({int maxLenght = 20}) {
   const String AUTO_ID_ALPHABET =
