@@ -17,6 +17,7 @@ dependencies:
 
   # Animation
   simple_animations: ^4.0.1
+  lottie: ^1.2.0
 
   # Utils
   intl: ^0.17.0
