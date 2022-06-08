@@ -1,11 +1,11 @@
 library layoutools;
 
 import 'dart:math';
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
 import 'package:simple_animations/simple_animations.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/widgets.dart';
 
 part 'widget/shadow_mask.dart';
 
