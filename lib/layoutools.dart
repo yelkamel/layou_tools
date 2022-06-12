@@ -2,12 +2,14 @@ library layoutools;
 
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
 import 'package:simple_animations/simple_animations.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 part 'widget/shadow_mask.dart';
+part 'widget/image_all.dart';
 
 part 'animation/entrace_fader.dart';
 part 'animation/loading_circle.dart';
