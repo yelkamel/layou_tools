@@ -31,10 +31,18 @@ class UtilsFirestore {
     required String path,
     required Map<String, dynamic> data,
     bool showDebug = true,
+    bool createIfNotExists = false,
   }) async {
     final reference = FirebaseFirestore.instance.doc(path);
     if (showDebug) debugPrint('===> [UtilsFirestore] update: $path: $data');
-    await reference.update(data);
+    await reference.update(data).catchError((e) {
+      if (showDebug) debugPrint('===> [UtilsFirestore] update error: $e');
+      if (createIfNotExists) {
+        if (showDebug)
+          debugPrint('===> [UtilsFirestore] update not existe create');
+        reference.set(data);
+      }
+    });
   }
 
   Future<void> deleteData({required String path}) async {
@@ -46,8 +54,11 @@ class UtilsFirestore {
   Future<T> getDocument<T>({
     required String path,
     required T builder(Map<String, dynamic>? data, String documentID),
+    bool showDebug = true,
+    bool createIfNotExists = false,
   }) async {
     final fireStoreItem = await FirebaseFirestore.instance.doc(path).get();
+    if (showDebug) debugPrint('===> [UtilsFirestore] update: $path');
     return builder(fireStoreItem.data(), fireStoreItem.id);
   }
 
