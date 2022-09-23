@@ -39,7 +39,7 @@ class UtilsFirestore {
       if (showDebug) debugPrint('===> [UtilsFirestore] update error: $e');
       if (createIfNotExists) {
         if (showDebug)
-          debugPrint('===> [UtilsFirestore] update not existe create');
+          debugPrint('===> [UtilsFirestore] file not exist so create it');
         reference.set(data);
       }
     });
@@ -58,7 +58,7 @@ class UtilsFirestore {
     bool createIfNotExists = false,
   }) async {
     final fireStoreItem = await FirebaseFirestore.instance.doc(path).get();
-    if (showDebug) debugPrint('===> [UtilsFirestore] update: $path');
+    if (showDebug) debugPrint('===> [UtilsFirestore] get: $path');
     return builder(fireStoreItem.data(), fireStoreItem.id);
   }
 
