@@ -1,7 +1,7 @@
 part of layoutools;
 
 extension LaYouDuration on Duration {
-  String hhmmssFormat() {
+  String get formatToMinSec {
     return [
       if (inSeconds > 3600) inHours.remainder(24),
       inMinutes.remainder(60),

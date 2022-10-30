@@ -25,7 +25,7 @@ extension LaYouDateTime on DateTime {
     return aDate == today;
   }
 
-  String get toDayMonth {
+  String get formatToDayMonthFr {
     return DateFormat('d MMMM', 'fr_FR').format(this);
   }
 }
