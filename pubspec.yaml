@@ -1,5 +1,5 @@
-name: layoutools
-description: A new Flutter package project.
+name: layou_tools
+description: some dev tools to build amazing apps.
 version: 0.0.1
 homepage:
 
@@ -14,6 +14,8 @@ dependencies:
   # Firebase
   cloud_firestore: ^4.0.3
   cloud_firestore_web: ^3.0.3
+  firebase_auth: ^4.1.0
+  firebase_auth_web: ^5.1.0
 
   # Animation
   simple_animations: ^4.0.1

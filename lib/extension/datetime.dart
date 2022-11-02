@@ -1,7 +1,7 @@
-part of layoutools;
+part of layou_tools;
 
 extension LaYouDateTime on DateTime {
-  String get timeStringFromDate {
+  String get formatToTime {
     return DateFormat.Hm().format(this);
   }
 
@@ -18,7 +18,6 @@ extension LaYouDateTime on DateTime {
   }
 
   bool get isToday {
-    if (this == null) return false;
     final now = DateTime.now();
     final today = DateTime(now.year, now.month, now.day);
     final aDate = DateTime(year, month, day);

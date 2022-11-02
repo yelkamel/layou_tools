@@ -1,4 +1,4 @@
-library layoutools;
+library layou_tools;
 
 import 'dart:math';
 import 'package:flutter/material.dart';
@@ -23,4 +23,4 @@ part 'extension/int.dart';
 part 'extension/list.dart';
 part 'extension/string.dart';
 
-part 'utils/firestore.dart';
+part 'service/firestore.dart';

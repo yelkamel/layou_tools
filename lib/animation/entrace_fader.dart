@@ -1,4 +1,4 @@
-part of layoutools;
+part of layou_tools;
 
 class EntranceFader extends StatefulWidget {
   /// Child to be animated on entrance

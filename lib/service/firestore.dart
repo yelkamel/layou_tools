@@ -1,64 +1,67 @@
-part of layoutools;
+part of layou_tools;
 
-class UtilsFirestore {
-  UtilsFirestore._();
-  static final instance = UtilsFirestore._();
+class LaYouFirestore {
+  LaYouFirestore._();
+  static final instance = LaYouFirestore._();
 
   DocumentSnapshot? lastUserDocument;
+
+  void print(String str) {
+    debugPrint('[LaYouFirestore] $str');
+  }
 
   Future<void> setData({
     required String path,
     required Map<String, dynamic> data,
-    bool showDebug = true,
+    bool log = false,
     bool merge = false,
   }) async {
     final reference = FirebaseFirestore.instance.doc(path);
-    if (showDebug) debugPrint('===> [UtilsFirestore] set: $path: $data');
+    if (log) print('set: $path: $data');
     await reference.set(data, SetOptions(merge: merge));
   }
 
   Future<void> addData({
     required String path,
     required Map<String, dynamic> data,
-    bool showDebug = true,
+    bool log = false,
   }) async {
     final reference = FirebaseFirestore.instance.collection(path);
-    if (showDebug) debugPrint('===> [UtilsFirestore] add: $path: $data');
+    if (log) print('add: $path: $data');
     await reference.add(data);
   }
 
   Future<void> updateData({
     required String path,
     required Map<String, dynamic> data,
-    bool showDebug = true,
+    bool log = false,
     bool createIfNotExists = false,
   }) async {
     final reference = FirebaseFirestore.instance.doc(path);
-    if (showDebug) debugPrint('===> [UtilsFirestore] update: $path: $data');
+    if (log) print('update: $path: $data');
     await reference.update(data).catchError((e) {
-      if (showDebug) debugPrint('===> [UtilsFirestore] update error: $e');
+      if (log) print('update error: $e');
       if (createIfNotExists) {
-        if (showDebug)
-          debugPrint('===> [UtilsFirestore] file not exist so create it');
+        if (log) print('file not exist so create it');
         reference.set(data);
       }
     });
   }
 
-  Future<void> deleteData({required String path}) async {
+  Future<void> deleteData({required String path, bool log = false}) async {
     final reference = FirebaseFirestore.instance.doc(path);
-    debugPrint('===> [UtilsFirestore] delete: $path');
+    if (log) print('delete: $path');
     await reference.delete();
   }
 
   Future<T> getDocument<T>({
     required String path,
     required T builder(Map<String, dynamic>? data, String documentID),
-    bool showDebug = true,
+    bool log = true,
     bool createIfNotExists = false,
   }) async {
     final fireStoreItem = await FirebaseFirestore.instance.doc(path).get();
-    if (showDebug) debugPrint('===> [UtilsFirestore] get: $path');
+    if (log) print('get: $path');
     return builder(fireStoreItem.data(), fireStoreItem.id);
   }
 
@@ -150,11 +153,12 @@ class UtilsFirestore {
   Future<bool> checkIfDocExists({
     required String collectionPath,
     required String docId,
+    bool log = false,
   }) async {
     try {
       var collectionRef = FirebaseFirestore.instance.collection(collectionPath);
       var doc = await collectionRef.doc(docId).get();
-      debugPrint('===> [UtilsFirestore] checkIfDocExists: ${doc.exists}');
+      if (log) print('checkIfDocExists: ${doc.exists}');
       return doc.exists;
     } catch (e) {
       return false;

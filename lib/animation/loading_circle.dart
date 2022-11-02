@@ -1,13 +1,13 @@
-part of layoutools;
+part of layou_tools;
 
 class LoadingCircle extends StatefulWidget {
   final double size;
   final double opacity;
-  final Color color;
+  final Color? color;
   const LoadingCircle({
     Key? key,
     this.size = 100,
-    this.color = const Color(0xffFFAC73),
+    this.color,
     this.opacity = 0.6,
   }) : super(key: key);
 
@@ -55,7 +55,7 @@ class _LoadingCircleState extends State<LoadingCircle>
           child: Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: widget.color.withOpacity(widget.opacity),
+              color: widget.color ?? Theme.of(context).colorScheme.primary,
             ),
             width: widget.size,
             height: widget.size,
@@ -66,7 +66,7 @@ class _LoadingCircleState extends State<LoadingCircle>
           child: Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: widget.color.withOpacity(widget.opacity / 2),
+              color: widget.color ?? Theme.of(context).colorScheme.primary,
             ),
             width: widget.size,
             height: widget.size,

@@ -1,4 +1,4 @@
-part of layoutools;
+part of layou_tools;
 
 extension LaYouString<T> on String {
   static final emailRegex =
@@ -9,8 +9,20 @@ extension LaYouString<T> on String {
     return regExp.hasMatch(this);
   }
 
-  String spaceRemoved() {
+  String get removeSpaces {
     return replaceFirst(" ", "");
+  }
+
+  String get removeDiacritics {
+    String res = '';
+
+    for (int i = 0; i < this.length; i++) {
+      final utf8 = this.codeUnitAt(i);
+      if (utf8 < 768 || utf8 > 879) {
+        res += this[i];
+      }
+    }
+    return res;
   }
 
   String get capitalizeFirst =>
@@ -22,4 +34,7 @@ extension LaYouString<T> on String {
     final indexOfDot = this.indexOf('.');
     return this.substring(0, indexOfDot);
   }
+
+  bool get isNumeric => double.tryParse(this) != null;
+  String get fileExtension => split('.').last;
 }

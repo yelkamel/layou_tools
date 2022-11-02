@@ -1,4 +1,4 @@
-part of layoutools;
+part of layou_tools;
 
 extension LaYouDuration on Duration {
   String get formatToMinSec {

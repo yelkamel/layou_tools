@@ -1,4 +1,4 @@
-part of layoutools;
+part of layou_tools;
 
 class LottieAnimated extends StatefulWidget {
   final Duration delay;
