@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
 import 'package:simple_animations/simple_animations.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 part 'widget/shadow_mask.dart';
 part 'widget/image_all.dart';
@@ -24,3 +25,5 @@ part 'extension/list.dart';
 part 'extension/string.dart';
 
 part 'service/firestore.dart';
+part 'service/auth.dart';
+part 'utils.dart';

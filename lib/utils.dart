@@ -1,6 +1,4 @@
-import 'dart:math';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
+part of layou_tools;
 
 DateTime dateTimefromJson(Timestamp date) =>
     DateTime.fromMillisecondsSinceEpoch(date.millisecondsSinceEpoch);
