@@ -25,8 +25,7 @@ extension LaYouString<T> on String {
     return res;
   }
 
-  String get capitalizeFirst =>
-      length > 0 ? '${this[0].toUpperCase()}${substring(1).toLowerCase()}' : '';
+  String get upperCaseFirst => this.replaceRange(0, 1, this[0].toUpperCase());
 
   Color get hexToColor => Color(int.parse("0xff${replaceAll('#', '')}"));
 
