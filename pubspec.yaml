@@ -22,7 +22,7 @@ dependencies:
   lottie: ^1.2.0
 
   # Utils
-  intl: ^0.18.1
+  intl: 0.18.0
   json_serializable: ^6.0.1
   json_annotation: ^4.4.0
   copy_with_extension: ^4.0.0
