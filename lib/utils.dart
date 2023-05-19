@@ -33,3 +33,16 @@ String generateRandomId({int maxLenght = 20}) {
 
   return id;
 }
+
+TimeOfDay timeOfDayfromJson(String? data) => data == null
+    ? const TimeOfDay(
+        hour: 8,
+        minute: 0,
+      )
+    : TimeOfDay(
+        hour: int.parse(data.toString().split("*").first),
+        minute: int.parse(data.toString().split("*").last),
+      );
+
+String? timeOfDaytoJson(TimeOfDay? time) =>
+    time == null ? null : "${time.hour}*${time.minute}";
