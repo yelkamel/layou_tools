@@ -86,4 +86,12 @@ class Auth {
       FirebaseAuth.instance.currentUser!.updateEmail(email);
     }
   }
+
+  static Future<void> loginUserAnonymously() async {
+    User? user = FirebaseAuth.instance.currentUser;
+
+    if (user == null) {
+      await FirebaseAuth.instance.signInAnonymously();
+    }
+  }
 }

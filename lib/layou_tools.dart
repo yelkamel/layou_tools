@@ -14,6 +14,7 @@ part 'widget/image_all.dart';
 
 part 'animation/entrace_fader.dart';
 part 'animation/loading_circle.dart';
+part 'animation/loading_dots.dart';
 part 'animation/fadeinout_transitionner.dart';
 part 'animation/gradient_animated.dart';
 part 'animation/lottie_animated.dart';
