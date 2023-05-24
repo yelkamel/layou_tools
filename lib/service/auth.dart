@@ -14,6 +14,8 @@ class Auth {
   static Stream<User?> get userAuthStream =>
       FirebaseAuth.instance.authStateChanges();
 
+  static bool get isAnonymous => FirebaseAuth.instance.currentUser!.isAnonymous;
+
   static Future<void> signOut() => FirebaseAuth.instance.signOut();
 
   static Future<void> setPersistence() =>
