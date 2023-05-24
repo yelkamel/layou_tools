@@ -96,4 +96,22 @@ class Auth {
       await FirebaseAuth.instance.signInAnonymously();
     }
   }
+
+  static Future<bool> upgradeAnonymWithEmailPassword(
+    String email,
+    String pwd,
+  ) async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return false;
+
+    try {
+      await Future.wait([
+        user.updateEmail(email),
+        user.updatePassword(pwd),
+      ]);
+      return true;
+    } catch (e) {
+      throw e;
+    }
+  }
 }
