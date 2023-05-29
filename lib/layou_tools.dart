@@ -9,7 +9,7 @@ import 'package:simple_animations/simple_animations.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-part 'widget/shadow_mask.dart';
+part 'widget/shader_gradient_opacity.dart';
 part 'widget/image_all.dart';
 
 part 'animation/entrace_fader.dart';
