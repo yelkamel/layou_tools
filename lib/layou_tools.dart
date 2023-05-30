@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
-import 'package:simple_animations/simple_animations.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -16,7 +15,6 @@ part 'animation/entrace_fader.dart';
 part 'animation/loading_circle.dart';
 part 'animation/loading_dots.dart';
 part 'animation/fadeinout_transitionner.dart';
-part 'animation/gradient_animated.dart';
 part 'animation/lottie_animated.dart';
 
 part 'extension/datetime.dart';
