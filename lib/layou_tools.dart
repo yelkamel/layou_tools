@@ -10,6 +10,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 part 'widget/shader_gradient_opacity.dart';
 part 'widget/image_all.dart';
+part 'widget/keep.dart';
 
 part 'animation/entrace_fader.dart';
 part 'animation/loading_circle.dart';
