@@ -99,16 +99,19 @@ class Auth {
 
   static Future<bool> upgradeAnonymWithEmailPassword(
     String email,
-    String pwd,
+    String password,
   ) async {
     final user = FirebaseAuth.instance.currentUser;
     if (user == null) return false;
 
     try {
-      await Future.wait([
-        user.updateEmail(email),
-        user.updatePassword(pwd),
-      ]);
+      final credential = EmailAuthProvider.credential(
+        email: email,
+        password: password,
+      );
+      await FirebaseAuth.instance.currentUser!.linkWithCredential(
+        credential,
+      );
       return true;
     } catch (e) {
       throw e;
