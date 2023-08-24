@@ -27,4 +27,8 @@ extension LaYouDateTime on DateTime {
   String get formatToDayMonthFr {
     return DateFormat('d MMMM', 'fr_FR').format(this);
   }
+
+  String getformatToDayMonth(String localeStr) {
+    return DateFormat('d MMMM', localeStr).format(this);
+  }
 }
