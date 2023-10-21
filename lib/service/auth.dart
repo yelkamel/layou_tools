@@ -16,10 +16,21 @@ class Auth {
 
   static bool get isAnonymous => FirebaseAuth.instance.currentUser!.isAnonymous;
 
-  static Future<void> signOut() => FirebaseAuth.instance.signOut();
+  static Future<void> signOut() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+    } catch (e) {
+      rethrow;
+    }
+  }
 
-  static Future<void> setPersistence() =>
-      FirebaseAuth.instance.setPersistence(Persistence.LOCAL);
+  static Future<void> setPersistence() async {
+    try {
+      await FirebaseAuth.instance.setPersistence(Persistence.LOCAL);
+    } catch (e) {
+      rethrow;
+    }
+  }
 
   static Future<bool> logInWithEmailPassword(String email, String pwd) async {
     try {
@@ -30,40 +41,20 @@ class Auth {
       );
       return res.user != null;
     } catch (e) {
-      String msg = e.toString();
-
-      if (msg.contains("user-not-found")) {
-        msg = "Cet email est incorrect:\n$email";
-      } else if (msg.contains("wrong-password")) {
-        msg = "Le mot de passe est incorrect.";
-      } else if (msg.contains("network-request-failed")) {
-        msg =
-            "Erreur de connexion avec le serveur.\nÊtes-vous connecté à internet?";
-      } else if (msg.contains("too-many-requests")) {
-        msg = "Trop de tentatives refusées. Réessayez plus tard.";
-      }
-      throw msg;
+      rethrow;
     }
   }
 
   static Future<bool> registerWithEmailPassword(
       String email, String pwd) async {
     try {
-      final UserCredential res =
-          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      final res = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: pwd,
       );
       return res.user != null;
     } catch (e) {
-      String msg = e.toString();
-      if (msg.contains("email-already-in-use")) {
-        msg = "L'email utilisé est déjà associé à un compte.";
-      } else if (msg.contains("network-request-failed")) {
-        msg =
-            "Erreur de connexion avec le serveur.\nÊtes-vous connecté à internet?";
-      }
-      throw msg;
+      rethrow;
     }
   }
 
@@ -79,13 +70,21 @@ class Auth {
 
   static Future<void> updateDisplayName(String name) async {
     if (FirebaseAuth.instance.currentUser != null) {
-      FirebaseAuth.instance.currentUser!.updateDisplayName(name);
+      try {
+        await FirebaseAuth.instance.currentUser!.updateDisplayName(name);
+      } catch (e) {
+        rethrow;
+      }
     }
   }
 
   static Future<void> updateEmail(String email) async {
     if (FirebaseAuth.instance.currentUser != null) {
-      FirebaseAuth.instance.currentUser!.updateEmail(email);
+      try {
+        await FirebaseAuth.instance.currentUser!.updateEmail(email);
+      } catch (e) {
+        rethrow;
+      }
     }
   }
 
@@ -93,7 +92,19 @@ class Auth {
     User? user = FirebaseAuth.instance.currentUser;
 
     if (user == null) {
-      await FirebaseAuth.instance.signInAnonymously();
+      try {
+        await FirebaseAuth.instance.signInAnonymously();
+      } catch (e) {
+        rethrow;
+      }
+    }
+  }
+
+  static Future<void> signInWithCredential(AuthCredential credential) async {
+    try {
+      await FirebaseAuth.instance.signInWithCredential(credential);
+    } catch (e) {
+      rethrow;
     }
   }
 
@@ -114,7 +125,7 @@ class Auth {
       );
       return true;
     } catch (e) {
-      throw e;
+      rethrow;
     }
   }
 }
