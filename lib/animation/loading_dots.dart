@@ -6,15 +6,16 @@ class LoadingDots extends StatefulWidget {
   final double size;
   final Duration duration;
   final double distance;
+  final double height;
 
-  const LoadingDots({
-    Key? key,
-    this.numberOfDots = 3,
-    this.color = Colors.white,
-    this.size = 7,
-    this.duration = const Duration(milliseconds: 300),
-    this.distance = 7,
-  });
+  const LoadingDots(
+      {Key? key,
+      this.numberOfDots = 3,
+      this.color = Colors.white,
+      this.size = 7,
+      this.duration = const Duration(milliseconds: 300),
+      this.distance = 7,
+      this.height = 20});
 
   @override
   State<LoadingDots> createState() => _LoadingDotsState();
@@ -81,8 +82,9 @@ class _LoadingDotsState extends State<LoadingDots>
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 40,
-      height: 20,
+      width: widget.size * widget.numberOfDots +
+          widget.distance * widget.numberOfDots,
+      height: widget.height,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: List.generate(widget.numberOfDots, (index) {
@@ -127,7 +129,7 @@ class DotWidget extends StatelessWidget {
   const DotWidget({
     Key? key,
     this.color = Colors.white,
-    this.size = 10,
+    this.size = 7,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
