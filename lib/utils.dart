@@ -34,15 +34,11 @@ String generateRandomId({int maxLenght = 20}) {
   return id;
 }
 
-TimeOfDay timeOfDayfromJson(String? data) => data == null
-    ? const TimeOfDay(
-        hour: 8,
-        minute: 0,
-      )
-    : TimeOfDay(
-        hour: int.parse(data.toString().split("*").first),
-        minute: int.parse(data.toString().split("*").last),
-      );
+TimeOfDay timeOfDayFromJson(Timestamp date) =>
+    TimeOfDay.fromDateTime(dateTimefromJson(date));
 
-String? timeOfDaytoJson(TimeOfDay? time) =>
-    time == null ? null : "${time.hour}*${time.minute}";
+Timestamp timeOfTheDaytoJson(TimeOfDay t) {
+  final now = DateTime.now();
+  final date = DateTime(now.year, now.month, now.day, t.hour, t.minute);
+  return dateTimetoJson(date);
+}
