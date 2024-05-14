@@ -25,6 +25,13 @@ extension LaYouString<T> on String {
     return res;
   }
 
+  String get convertToId {
+    String res = this.replaceAll(' ', '_');
+    res = res.prefix;
+    res = res.removeDiacritics;
+    return res;
+  }
+
   String get upperCaseFirst => this.replaceRange(0, 1, this[0].toUpperCase());
 
   Color get hexToColor => Color(int.parse("0xff${replaceAll('#', '')}"));
