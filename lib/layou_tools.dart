@@ -4,8 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:uuid/uuid.dart';
 
 part 'widget/shader_gradient_opacity.dart';
 part 'widget/keep.dart';
@@ -22,6 +21,4 @@ part 'extension/int.dart';
 part 'extension/list.dart';
 part 'extension/string.dart';
 
-part 'service/firestore.dart';
-part 'service/auth.dart';
 part 'utils.dart';

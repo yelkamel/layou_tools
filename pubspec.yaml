@@ -10,20 +10,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  
-  # Firebase
-  cloud_firestore: ^5.4.2
-  cloud_firestore_web: ^4.3.1
-  firebase_auth: ^5.3.0
-  firebase_auth_web: ^5.13.1
 
-  # Animation
-  lottie: ^1.2.0
-
-  # Utils
+  lottie: ^1.2.0 
   intl: ^0.19.0
   json_serializable: ^6.0.1
   json_annotation: ^4.4.0
+  uuid: ^4.5.1
 
 dev_dependencies:
   flutter_test:
