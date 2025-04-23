@@ -11,11 +11,11 @@ dependencies:
   flutter:
     sdk: flutter
 
-  lottie: ^1.2.0 
-  intl: ^0.19.0
-  json_serializable: ^6.0.1
-  json_annotation: ^4.4.0
-  uuid: ^4.5.1
+  lottie:
+  intl:
+  json_serializable:
+  json_annotation:
+  uuid:
 
 dev_dependencies:
   flutter_test:
