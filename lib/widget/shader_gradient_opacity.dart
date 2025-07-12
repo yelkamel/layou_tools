@@ -3,18 +3,19 @@ part of layou_tools;
 class ShaderGradientOpacity extends StatelessWidget {
   final Widget child;
   final Axis direction;
-  final double distance;
   final Color? color;
+  final bool isDark;
   const ShaderGradientOpacity({
     Key? key,
     required this.child,
     this.direction = Axis.vertical,
-    this.distance = 0.05,
     this.color,
+    this.isDark = false,
   });
 
   @override
   Widget build(BuildContext context) {
+    final distance = isDark ? 0.03 : 0.01;
     return ShaderMask(
       shaderCallback: (Rect rect) {
         return LinearGradient(
